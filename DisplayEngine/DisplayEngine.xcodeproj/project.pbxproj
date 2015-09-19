@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D59946191BADD4DA000B94E5 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59946181BADD4DA000B94E5 /* GameObject.swift */; settings = {ASSET_TAGS = (); }; };
-		D599461B1BADD58D000B94E5 /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D599461A1BADD58D000B94E5 /* Point3D.swift */; settings = {ASSET_TAGS = (); }; };
 		D5B879BE1BADCE37006AC9EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B879BD1BADCE37006AC9EE /* AppDelegate.swift */; };
 		D5B879C01BADCE37006AC9EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B879BF1BADCE37006AC9EE /* ViewController.swift */; };
 		D5B879C31BADCE37006AC9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B879C11BADCE37006AC9EE /* Main.storyboard */; };
@@ -39,7 +38,6 @@
 
 /* Begin PBXFileReference section */
 		D59946181BADD4DA000B94E5 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
-		D599461A1BADD58D000B94E5 /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
 		D5B879BA1BADCE37006AC9EE /* DisplayEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B879BD1BADCE37006AC9EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B879BF1BADCE37006AC9EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				D5B879BF1BADCE37006AC9EE /* ViewController.swift */,
 				D5B879EB1BADCEAD006AC9EE /* DisplayEngine.swift */,
 				D59946181BADD4DA000B94E5 /* GameObject.swift */,
-				D599461A1BADD58D000B94E5 /* Point3D.swift */,
 				D5B879ED1BADD289006AC9EE /* GlobalPosition.swift */,
 				D5B879C11BADCE37006AC9EE /* Main.storyboard */,
 				D5B879C41BADCE37006AC9EE /* Assets.xcassets */,
@@ -273,7 +270,6 @@
 				D5B879C01BADCE37006AC9EE /* ViewController.swift in Sources */,
 				D5B879EE1BADD289006AC9EE /* GlobalPosition.swift in Sources */,
 				D5B879EC1BADCEAD006AC9EE /* DisplayEngine.swift in Sources */,
-				D599461B1BADD58D000B94E5 /* Point3D.swift in Sources */,
 				D5B879BE1BADCE37006AC9EE /* AppDelegate.swift in Sources */,
 				D59946191BADD4DA000B94E5 /* GameObject.swift in Sources */,
 			);
