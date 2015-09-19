@@ -13,11 +13,25 @@ class PoseTracker {
     
     static let sharedInstance: PoseTracker = PoseTracker()
     private let motionManager = CMMotionManager()
-    private static let DEFAULT_UPDATE_RATE = 0.1
+    private static let DEFAULT_UPDATE_RATE = 0.01
+    private static let GRAVITY_ACCELERATION = -9.81
+    private var previousTime: NSTimeInterval?
+    private var xVelocity: Double = 0.0
+    private var yVelocity: Double = 0.0
+    private var zVelocity: Double = 0.0
     
-    func startTracking(updateRate: NSTimeInterval = DEFAULT_UPDATE_RATE) {
+    private var xPosition: Double = 0.0
+    private var yPosition: Double = 0.0
+    private var zPosition: Double = 0.0
+    
+    private static let K_FILTER_CONSTANT = 0.1
+    private var rollingXacc: Double = 0.0
+    private var rollingYacc: Double = 0.0
+    private var rollingZacc: Double = 0.0
+    
+    func startTracking(updateRate: NSTimeInterval = PoseTracker.DEFAULT_UPDATE_RATE) {
         motionManager.deviceMotionUpdateInterval = updateRate
-        
+        previousTime = NSDate.timeIntervalSinceReferenceDate()
         motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) { (motionData: CMDeviceMotion?, error: NSError?) in
             if (error != nil){
                 println(error?.description)
@@ -32,7 +46,51 @@ class PoseTracker {
     }
     
     private func processMotionData(motionData: CMDeviceMotion) {
-        println("\(motionData.userAcceleration.x, motionData.userAcceleration.y, motionData.userAcceleration.z)")
+        
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        let interval = currentTime - previousTime!
+        //println("\(interval)")
+        previousTime = currentTime
+        
+        // rolling mean values (low pass filter)
+        rollingXacc = motionData.userAcceleration.x * PoseTracker.K_FILTER_CONSTANT + rollingXacc*(1 - PoseTracker.K_FILTER_CONSTANT)
+        rollingYacc = motionData.userAcceleration.y * PoseTracker.K_FILTER_CONSTANT + rollingYacc*(1 - PoseTracker.K_FILTER_CONSTANT)
+        rollingZacc = motionData.userAcceleration.z * PoseTracker.K_FILTER_CONSTANT + rollingZacc*(1 - PoseTracker.K_FILTER_CONSTANT)
+        
+        // subtract low-pass values to create high pass filter
+        let accX = motionData.userAcceleration.x - rollingXacc
+        let accY = motionData.userAcceleration.y - rollingYacc
+        let accZ = motionData.userAcceleration.z - rollingZacc
+        
+        xVelocity += accX * interval * PoseTracker.GRAVITY_ACCELERATION
+        yVelocity += accY * interval * PoseTracker.GRAVITY_ACCELERATION
+        zVelocity += accZ * interval * PoseTracker.GRAVITY_ACCELERATION
+        
+        xPosition += xVelocity * interval
+        yPosition += yVelocity * interval
+        zPosition += zVelocity * interval
+        
+        //println("\(xPosition), \(yPosition), \(zPosition)")
+        //println("\(xVelocity), \(yVelocity), \(zVelocity)")
+        println("\(accX), \(accY), \(accZ)")
+        /*if (accX > 0.2) {
+            print("x+ ")
+        }
+        if (accX < -0.2) {
+            print("x- ")
+        }
+        if (accY > 0.2) {
+            print("y+ ")
+        }
+        if (accY < -0.2) {
+            print("y- ")
+        }
+        if (accZ > 0.2) {
+            println("z+")
+        }
+        if (accZ < -0.2) {
+            println("z-")
+        }*/
     }
     
 }
