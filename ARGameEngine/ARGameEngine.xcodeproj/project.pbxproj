@@ -156,6 +156,7 @@
 		7AD43CE71BADC2B40076849F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Manjot Sangha";
 				TargetAttributes = {
@@ -409,6 +410,7 @@
 				7AD43D101BADC2B40076849F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7AD43D111BADC2B40076849F /* Build configuration list for PBXNativeTarget "ARGameEngineTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +419,7 @@
 				7AD43D131BADC2B40076849F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
