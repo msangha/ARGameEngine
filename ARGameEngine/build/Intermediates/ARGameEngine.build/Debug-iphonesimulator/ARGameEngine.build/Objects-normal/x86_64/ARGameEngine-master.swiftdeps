@@ -1,0 +1,5 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "a2b600ee2b93e334593a8baee52bdc10"
+inputs: 
+- "/Users/Manjot/Documents/HackMIT2015/ARGameEngine/ARGameEngine/ARGameEngine/ViewController.swift"
+- "/Users/Manjot/Documents/HackMIT2015/ARGameEngine/ARGameEngine/ARGameEngine/AppDelegate.swift"

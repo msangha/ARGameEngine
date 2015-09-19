@@ -1,0 +1,4 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
+options: "0c5dbd6ad9083466ff055039f20b9e41"
+inputs: 
+- "/Users/Manjot/Documents/HackMIT2015/ARGameEngine/ARGameEngine/ARGameEngineTests/ARGameEngineTests.swift"
