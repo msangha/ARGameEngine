@@ -13,9 +13,12 @@ class PoseTracker {
     
     static let sharedInstance: PoseTracker = PoseTracker()
     private let motionManager = CMMotionManager()
+    
     private static let DEFAULT_UPDATE_RATE = 0.01
     private static let GRAVITY_ACCELERATION = -9.81
+    
     private var previousTime: NSTimeInterval?
+    
     private var xVelocity: Double = 0.0
     private var yVelocity: Double = 0.0
     private var zVelocity: Double = 0.0
@@ -78,7 +81,15 @@ class PoseTracker {
         roll = motionData.attitude.roll
         yaw = motionData.attitude.yaw
         
-        println("\(pitch), \(roll), \(yaw)")
+        var v = Point3D(x: 0, y: 1, z: 0)
+        var u = Point3D(x: 1, y: 0, z: 0)
+        v = v.rotate(pitch, roll: roll, yaw: yaw)
+        u = u.rotate(pitch, roll: roll, yaw: yaw)
+        
+        println("v: " + v.toString())
+        println("u: " + u.toString())
+        
+        //println("\(pitch), \(roll), \(yaw)")
         
         //println("\(xPosition), \(yPosition), \(zPosition)")
         //println("\(xVelocity), \(yVelocity), \(zVelocity)")

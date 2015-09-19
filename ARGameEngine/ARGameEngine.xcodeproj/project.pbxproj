@@ -15,6 +15,7 @@
 		7AD43D0B1BADC2B40076849F /* ARGameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D0A1BADC2B40076849F /* ARGameEngineTests.swift */; };
 		7AD43D1E1BADC9640076849F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D1D1BADC9640076849F /* CameraViewController.swift */; };
 		7AD43D201BADCA560076849F /* PoseTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D1F1BADCA560076849F /* PoseTracker.swift */; };
+		7AD43D321BAE0CB40076849F /* GlobalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D2F1BAE0CB40076849F /* GlobalPosition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		7AD43D0A1BADC2B40076849F /* ARGameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGameEngineTests.swift; sourceTree = "<group>"; };
 		7AD43D1D1BADC9640076849F /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../CameraViewController.swift; sourceTree = "<group>"; };
 		7AD43D1F1BADCA560076849F /* PoseTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseTracker.swift; sourceTree = "<group>"; };
+		7AD43D2F1BAE0CB40076849F /* GlobalPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalPosition.swift; path = ../../DisplayEngine/DisplayEngine/GlobalPosition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		7AD43CF11BADC2B40076849F /* ARGameEngine */ = {
 			isa = PBXGroup;
 			children = (
+				7AD43D2C1BAE0C9F0076849F /* DisplayEngine */,
 				7AD43D211BADD2B70076849F /* PoseTracking */,
 				7AD43D141BADC3A20076849F /* UI */,
 				7AD43CF41BADC2B40076849F /* AppDelegate.swift */,
@@ -132,6 +135,14 @@
 				7AD43D1F1BADCA560076849F /* PoseTracker.swift */,
 			);
 			name = PoseTracking;
+			sourceTree = "<group>";
+		};
+		7AD43D2C1BAE0C9F0076849F /* DisplayEngine */ = {
+			isa = PBXGroup;
+			children = (
+				7AD43D2F1BAE0CB40076849F /* GlobalPosition.swift */,
+			);
+			name = DisplayEngine;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AD43D321BAE0CB40076849F /* GlobalPosition.swift in Sources */,
 				7AD43CF71BADC2B40076849F /* PoseTestViewController.swift in Sources */,
 				7AD43CF51BADC2B40076849F /* AppDelegate.swift in Sources */,
 				7AD43D1E1BADC9640076849F /* CameraViewController.swift in Sources */,
