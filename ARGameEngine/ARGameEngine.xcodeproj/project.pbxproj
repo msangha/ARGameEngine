@@ -13,6 +13,7 @@
 		7AD43CFC1BADC2B40076849F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AD43CFB1BADC2B40076849F /* Images.xcassets */; };
 		7AD43CFF1BADC2B40076849F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AD43CFD1BADC2B40076849F /* LaunchScreen.xib */; };
 		7AD43D0B1BADC2B40076849F /* ARGameEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D0A1BADC2B40076849F /* ARGameEngineTests.swift */; };
+		A8B75C311BADCB5C0029F580 /* pokeball.png in Resources */ = {isa = PBXBuildFile; fileRef = A8B75C301BADCB5C0029F580 /* pokeball.png */; settings = {ASSET_TAGS = (); }; };
 		7AD43D1E1BADC9640076849F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D1D1BADC9640076849F /* CameraViewController.swift */; };
 		7AD43D201BADCA560076849F /* PoseTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D1F1BADCA560076849F /* PoseTracker.swift */; };
 		7AD43D281BADD8130076849F /* DisplayEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D241BADD8130076849F /* DisplayEngine.swift */; };
@@ -42,6 +43,7 @@
 		7AD43D041BADC2B40076849F /* ARGameEngineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARGameEngineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AD43D091BADC2B40076849F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7AD43D0A1BADC2B40076849F /* ARGameEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGameEngineTests.swift; sourceTree = "<group>"; };
+		A8B75C301BADCB5C0029F580 /* pokeball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pokeball.png; path = ../../../../pokeball.png; sourceTree = "<group>"; };
 		7AD43D1D1BADC9640076849F /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../CameraViewController.swift; sourceTree = "<group>"; };
 		7AD43D1F1BADCA560076849F /* PoseTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseTracker.swift; sourceTree = "<group>"; };
 		7AD43D241BADD8130076849F /* DisplayEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayEngine.swift; path = ../../DisplayEngine/DisplayEngine/DisplayEngine.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				7AD43CF61BADC2B40076849F /* ViewController.swift */,
+				A8B75C301BADCB5C0029F580 /* pokeball.png */,
 				7AD43CF81BADC2B40076849F /* Main.storyboard */,
 				7AD43CFD1BADC2B40076849F /* LaunchScreen.xib */,
 			);
@@ -198,6 +201,7 @@
 		7AD43CE71BADC2B40076849F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Manjot Sangha";
 				TargetAttributes = {
@@ -235,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AD43CFA1BADC2B40076849F /* Main.storyboard in Resources */,
+				A8B75C311BADCB5C0029F580 /* pokeball.png in Resources */,
 				7AD43CFF1BADC2B40076849F /* LaunchScreen.xib in Resources */,
 				7AD43CFC1BADC2B40076849F /* Images.xcassets in Resources */,
 			);
