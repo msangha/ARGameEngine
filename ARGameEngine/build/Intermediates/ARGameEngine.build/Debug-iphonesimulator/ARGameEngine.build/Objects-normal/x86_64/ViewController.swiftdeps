@@ -9,9 +9,9 @@ class-members:
 top-level:
 - "UIViewController"
 member-access:
+- "CSo16UIViewController"
 - "CSo11UIResponder"
 - "PSs9AnyObject"
-- "CSo16UIViewController"
 - "CSo8NSObject"
 dynamic-lookup:
 cross-module:
@@ -24,3 +24,4 @@ cross-module:
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreGraphics.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/Security.swiftmodule"
 - "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/CoreAudio.swiftmodule"
