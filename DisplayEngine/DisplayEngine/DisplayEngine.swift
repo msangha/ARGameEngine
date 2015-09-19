@@ -12,7 +12,7 @@ import Foundation
  * The class keeps track of objects to display and has the ability of projecting
  * them onto the camera feed image.
  */
-class DisplayEngine: NSObject {
+class DisplayEngine {
   mutating func addObject(obj: GameObject, phonePosition: GlobalPosition) {
   
   }

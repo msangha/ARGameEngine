@@ -14,8 +14,6 @@ import Foundation
  * instance of this struct.
  **/
 struct GlobalPosition {
-  let x = 0.0;
-  let y = 0.0;
-  let z = 0.0;
+  let p = Point3D()
   // TODO(manj): Add the parameters for orientation.
 }
