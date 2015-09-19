@@ -107,6 +107,16 @@ SWIFT_CLASS("_TtC12ARGameEngine11AppDelegate")
 @class NSBundle;
 @class NSCoder;
 
+SWIFT_CLASS("_TtC12ARGameEngine20CameraViewController")
+@interface CameraViewController : UIViewController
+- (void)didReceiveMemoryWarning;
+- (BOOL)shouldAutorotate;
+- (void)viewDidLoad;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithNibName:(NSString * __nullable)nibNameOrNil bundle:(NSBundle * __nullable)nibBundleOrNil OBJC_DESIGNATED_INITIALIZER;
+- (SWIFT_NULLABILITY(nonnull) instancetype)initWithCoder:(NSCoder * __nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 SWIFT_CLASS("_TtC12ARGameEngine14ViewController")
 @interface ViewController : UIViewController
 - (void)viewDidLoad;
