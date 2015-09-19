@@ -13,7 +13,7 @@ import Foundation
  * them onto the camera feed image.
  */
 class DisplayEngine {
-  mutating func addObject(obj: GameObject, phonePosition: GlobalPosition) {
+  func addObject(obj: GameObject, phonePosition: GlobalPosition) {
   
   }
 }
