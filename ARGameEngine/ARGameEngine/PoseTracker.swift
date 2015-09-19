@@ -29,6 +29,10 @@ class PoseTracker {
     private var rollingYacc: Double = 0.0
     private var rollingZacc: Double = 0.0
     
+    private var roll: Double = 0.0
+    private var pitch: Double = 0.0
+    private var yaw: Double = 0.0
+    
     func startTracking(updateRate: NSTimeInterval = PoseTracker.DEFAULT_UPDATE_RATE) {
         motionManager.deviceMotionUpdateInterval = updateRate
         previousTime = NSDate.timeIntervalSinceReferenceDate()
@@ -70,9 +74,15 @@ class PoseTracker {
         yPosition += yVelocity * interval
         zPosition += zVelocity * interval
         
+        pitch = motionData.attitude.pitch
+        roll = motionData.attitude.roll
+        yaw = motionData.attitude.yaw
+        
+        println("\(pitch), \(roll), \(yaw)")
+        
         //println("\(xPosition), \(yPosition), \(zPosition)")
         //println("\(xVelocity), \(yVelocity), \(zVelocity)")
-        println("\(accX), \(accY), \(accZ)")
+        //println("\(accX), \(accY), \(accZ)")
         /*if (accX > 0.2) {
             print("x+ ")
         }
