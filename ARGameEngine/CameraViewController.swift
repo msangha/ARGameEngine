@@ -9,11 +9,21 @@
 import UIKit
 import AVFoundation
 
-class CameraViewController: UIViewController {
+class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     
     private let captureSession = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
     private var previewLayer: AVCaptureVideoPreviewLayer?
+    private var imageView: UIImageView = UIImageView()
+    var displayVideo: Bool = false {
+        didSet{
+            if displayVideo {
+                captureSession.startRunning()
+            } else {
+                captureSession.stopRunning()
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -27,6 +37,9 @@ class CameraViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageView.frame = self.view.layer.frame
+        self.view.addSubview(imageView)
+        
         captureSession.sessionPreset = AVCaptureSessionPresetHigh
         
         let devices = AVCaptureDevice.devices()
@@ -39,24 +52,41 @@ class CameraViewController: UIViewController {
         }
         
         if (captureDevice != nil) {
-            beginSession()
+            setupSession()
         }
+        
+        // for testing
+        displayVideo = true
     }
     
-    private func beginSession() {
+    private func setupSession() {
         var error: NSError?
-        /*
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &error))
         
+        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &error))
+
         if (error != nil) {
             println("Error: \(error?.description)")
         }
         
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        self.view.layer.addSublayer(previewLayer)
-        previewLayer?.frame = self.view.layer.frame
-        captureSession.startRunning()
-        */
+        let dataOutput = AVCaptureVideoDataOutput()
+        
+        dataOutput.alwaysDiscardsLateVideoFrames = true
+        dataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]
+        dataOutput.setSampleBufferDelegate(self, queue: dispatch_get_main_queue())
+        
+        captureSession.addOutput(dataOutput)
+    }
+    
+    func mockChangeImage(image: CIImage) -> CIImage {
+        return image
+    }
+    
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
+        var imageRotationMatrix = CGAffineTransformMakeRotation(CGFloat(-1*M_PI_2))
+        var ciImage: CIImage = CIImage(CVPixelBuffer: CMSampleBufferGetImageBuffer(sampleBuffer)).imageByApplyingTransform(imageRotationMatrix)
+        var newCIImage: CIImage = mockChangeImage(ciImage)
+        var uiImage: UIImage = UIImage(CIImage: newCIImage)!
+        imageView.image = uiImage
     }
     
 }

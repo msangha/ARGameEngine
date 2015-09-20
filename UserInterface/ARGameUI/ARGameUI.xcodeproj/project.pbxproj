@@ -19,7 +19,8 @@
 		A8A04CEE1BAE2C4300294249 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A04CED1BAE2C4300294249 /* UIKit.framework */; };
 		A8A04CF01BAE2C4F00294249 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A04CEF1BAE2C4F00294249 /* Foundation.framework */; };
 		A8A04CF21BAE2C5700294249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A04CF11BAE2C5700294249 /* CoreGraphics.framework */; };
-		A8A04CF71BAE2F6A00294249 /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A04CF61BAE2F6A00294249 /* MultiplePulsingHaloLayer.m */; settings = {ASSET_TAGS = (); }; };
+		A8E034B51BAE592A0071FCAD /* pokeball.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E034B41BAE592A0071FCAD /* pokeball.png */; settings = {ASSET_TAGS = (); }; };
+		A8E034B91BAE644B0071FCAD /* camera_icon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E034B81BAE644B0071FCAD /* camera_icon2x.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +62,8 @@
 		A8A04CED1BAE2C4300294249 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A8A04CEF1BAE2C4F00294249 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A8A04CF11BAE2C5700294249 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		A8A04CF51BAE2F6A00294249 /* MultiplePulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MultiplePulsingHaloLayer.h; path = "../../../../../../Downloads/PulsingHalo-master 2/PulsingHalo/MultiplePulsingHaloLayer.h"; sourceTree = "<group>"; };
-		A8A04CF61BAE2F6A00294249 /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MultiplePulsingHaloLayer.m; path = "../../../../../../Downloads/PulsingHalo-master 2/PulsingHalo/MultiplePulsingHaloLayer.m"; sourceTree = "<group>"; };
+		A8E034B41BAE592A0071FCAD /* pokeball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pokeball.png; path = ../../../../../pokeball.png; sourceTree = "<group>"; };
+		A8E034B81BAE644B0071FCAD /* camera_icon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon2x.png; path = ../../../../../camera_icon2x.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,16 +118,16 @@
 		A8A04CA91BADE0D800294249 /* ARGameUI */ = {
 			isa = PBXGroup;
 			children = (
-				A8A04CF51BAE2F6A00294249 /* MultiplePulsingHaloLayer.h */,
-				A8A04CF61BAE2F6A00294249 /* MultiplePulsingHaloLayer.m */,
 				A8A04CE01BAE189300294249 /* BackTableVC.swift */,
+				A8E034B41BAE592A0071FCAD /* pokeball.png */,
+				A8E034B81BAE644B0071FCAD /* camera_icon2x.png */,
 				A8A04CAA1BADE0D800294249 /* AppDelegate.swift */,
 				A8A04CAC1BADE0D800294249 /* ViewController.swift */,
 				A8A04CAE1BADE0D800294249 /* Main.storyboard */,
 				A8A04CB11BADE0D800294249 /* Assets.xcassets */,
-				A8A04CDA1BADF7A900294249 /* SWRevealViewController.m */,
 				A8A04CD81BADF7A800294249 /* ARGameUI-Bridging-Header.h */,
 				A8A04CB31BADE0D800294249 /* LaunchScreen.storyboard */,
+				A8A04CDA1BADF7A900294249 /* SWRevealViewController.m */,
 				A8A04CD91BADF7A900294249 /* SWRevealViewController.h */,
 				A8A04CB61BADE0D800294249 /* Info.plist */,
 			);
@@ -267,6 +268,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8A04CB51BADE0D800294249 /* LaunchScreen.storyboard in Resources */,
+				A8E034B51BAE592A0071FCAD /* pokeball.png in Resources */,
+				A8E034B91BAE644B0071FCAD /* camera_icon2x.png in Resources */,
 				A8A04CB21BADE0D800294249 /* Assets.xcassets in Resources */,
 				A8A04CB01BADE0D800294249 /* Main.storyboard in Resources */,
 			);
@@ -295,7 +298,6 @@
 			files = (
 				A8A04CAD1BADE0D800294249 /* ViewController.swift in Sources */,
 				A8A04CAB1BADE0D800294249 /* AppDelegate.swift in Sources */,
-				A8A04CF71BAE2F6A00294249 /* MultiplePulsingHaloLayer.m in Sources */,
 				A8A04CE11BAE189300294249 /* BackTableVC.swift in Sources */,
 				A8A04CDB1BADF7A900294249 /* SWRevealViewController.m in Sources */,
 			);
@@ -529,6 +531,7 @@
 				A8A04CD11BADE0D800294249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8A04CD21BADE0D800294249 /* Build configuration list for PBXNativeTarget "ARGameUITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +540,7 @@
 				A8A04CD41BADE0D800294249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A8A04CD51BADE0D800294249 /* Build configuration list for PBXNativeTarget "ARGameUIUITests" */ = {
 			isa = XCConfigurationList;
@@ -545,6 +549,7 @@
 				A8A04CD71BADE0D800294249 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

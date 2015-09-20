@@ -3,4 +3,3 @@
 //
 
 #import "SWRevealViewController.h"
-#import "MultiplePulsingHaloLayer.h"
