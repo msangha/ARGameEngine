@@ -67,7 +67,7 @@ struct Point3D {
     }
     
     func toString() -> String {
-        return "(\(x), \(y), \(z))"
+        return "\(x), \(y), \(z)"
     }
 
 }
@@ -77,15 +77,17 @@ struct Point3D {
 // looking at the screen, w = faces outwards when looking at the screen.
 // w = v x u (cross product). All of the vectors are unit length.
 struct Orientation {
-  var u = Point3D()
-  var v = Point3D()
-  var w = Point3D()
+    var u = Point3D()
+    var v = Point3D()
+    var w: Point3D {
+        return u.cross(v)
+    }
 }
 
 // Structure that holds the essential position/orientation values, like x, y, z,
 // and orientation details. The accelerometer/gyroscope tracker should return an
 // instance of this struct.
 struct GlobalPosition {
-  let p = Point3D()
-  let o = Orientation()
+  var p = Point3D()
+  var o = Orientation()
 }

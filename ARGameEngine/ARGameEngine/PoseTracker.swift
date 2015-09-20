@@ -16,6 +16,9 @@ class PoseTracker {
     
     private static let DEFAULT_UPDATE_RATE = 0.01
     private static let GRAVITY_ACCELERATION = -9.81
+    private static let K_FILTER_CONSTANT = 0.1
+    private static let UNIT_VECTOR_V = Point3D(x: 0, y: 1, z: 0)
+    private static let UNIT_VECTOR_U = Point3D(x: 1, y: 0, z: 0)
     
     private var previousTime: NSTimeInterval?
     
@@ -27,14 +30,11 @@ class PoseTracker {
     private var yPosition: Double = 0.0
     private var zPosition: Double = 0.0
     
-    private static let K_FILTER_CONSTANT = 0.1
     private var rollingXacc: Double = 0.0
     private var rollingYacc: Double = 0.0
     private var rollingZacc: Double = 0.0
     
-    private var roll: Double = 0.0
-    private var pitch: Double = 0.0
-    private var yaw: Double = 0.0
+    private var pose: GlobalPosition = GlobalPosition()
     
     func startTracking(updateRate: NSTimeInterval = PoseTracker.DEFAULT_UPDATE_RATE) {
         motionManager.deviceMotionUpdateInterval = updateRate
@@ -44,7 +44,7 @@ class PoseTracker {
                 println(error?.description)
                 return
             }
-            self.processMotionData(motionData!)
+            self.pose = self.processMotionData(motionData!)
         }
     }
     
@@ -52,12 +52,16 @@ class PoseTracker {
         motionManager.stopDeviceMotionUpdates()
     }
     
-    private func processMotionData(motionData: CMDeviceMotion) {
+    func getPose() -> GlobalPosition {
+        return pose
+    }
+    
+    private func processMotionData(motionData: CMDeviceMotion) -> GlobalPosition {
         
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
         let interval = currentTime - previousTime!
-        //println("\(interval)")
         previousTime = currentTime
+        
         
         // rolling mean values (low pass filter)
         rollingXacc = motionData.userAcceleration.x * PoseTracker.K_FILTER_CONSTANT + rollingXacc*(1 - PoseTracker.K_FILTER_CONSTANT)
@@ -65,29 +69,31 @@ class PoseTracker {
         rollingZacc = motionData.userAcceleration.z * PoseTracker.K_FILTER_CONSTANT + rollingZacc*(1 - PoseTracker.K_FILTER_CONSTANT)
         
         // subtract low-pass values to create high pass filter
-        let accX = motionData.userAcceleration.x - rollingXacc
-        let accY = motionData.userAcceleration.y - rollingYacc
-        let accZ = motionData.userAcceleration.z - rollingZacc
+        let correctedAccX = motionData.userAcceleration.x //- rollingXacc
+        let correctedAccY = motionData.userAcceleration.y //- rollingYacc
+        let correctedAccZ = motionData.userAcceleration.z //- rollingZacc
         
-        xVelocity += accX * interval * PoseTracker.GRAVITY_ACCELERATION
-        yVelocity += accY * interval * PoseTracker.GRAVITY_ACCELERATION
-        zVelocity += accZ * interval * PoseTracker.GRAVITY_ACCELERATION
+        xVelocity += correctedAccX * interval * PoseTracker.GRAVITY_ACCELERATION
+        yVelocity += correctedAccY * interval * PoseTracker.GRAVITY_ACCELERATION
+        zVelocity += correctedAccZ * interval * PoseTracker.GRAVITY_ACCELERATION
         
         xPosition += xVelocity * interval
         yPosition += yVelocity * interval
         zPosition += zVelocity * interval
         
-        pitch = motionData.attitude.pitch
-        roll = motionData.attitude.roll
-        yaw = motionData.attitude.yaw
+        let position = Point3D(x: xPosition, y: yPosition, z: zPosition)
+        println(position.toString())
         
-        var v = Point3D(x: 0, y: 1, z: 0)
-        var u = Point3D(x: 1, y: 0, z: 0)
-        v = v.rotate(pitch, roll: roll, yaw: yaw)
-        u = u.rotate(pitch, roll: roll, yaw: yaw)
+        let pitch = motionData.attitude.pitch
+        let roll = motionData.attitude.roll
+        let yaw = motionData.attitude.yaw
+    
+        let v = PoseTracker.UNIT_VECTOR_V.rotate(pitch, roll: roll, yaw: yaw)
+        let u = PoseTracker.UNIT_VECTOR_U.rotate(pitch, roll: roll, yaw: yaw)
         
-        println("v: " + v.toString())
-        println("u: " + u.toString())
+        let orientation = Orientation(u: u, v: v)
+        
+        return GlobalPosition(p: position, o: orientation)
         
         //println("\(pitch), \(roll), \(yaw)")
         
