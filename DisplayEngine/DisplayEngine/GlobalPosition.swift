@@ -48,6 +48,6 @@ struct Orientation {
 // and orientation details. The accelerometer/gyroscope tracker should return an
 // instance of this struct.
 struct GlobalPosition {
-  let p = Point3D()
-  let o = Orientation()
+  var p = Point3D()
+  var o = Orientation()
 }
