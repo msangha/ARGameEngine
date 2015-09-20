@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreMotion
 
 public struct Point3D {
     var x = 0.0
@@ -71,7 +72,13 @@ public struct Point3D {
         rotatedPoint = rotatedPoint.rotateY(roll)
         rotatedPoint = rotatedPoint.rotateZ(yaw)
         return rotatedPoint
-        
+    }
+    
+    func rotate(matrix: CMRotationMatrix) -> Point3D {
+        let matrixRow1 = Point3D(x: matrix.m11, y: matrix.m21, z: matrix.m31)
+        let matrixRow2 = Point3D(x: matrix.m12, y: matrix.m22, z: matrix.m32)
+        let matrixRow3 = Point3D(x: matrix.m13, y: matrix.m23, z: matrix.m33)
+        return Point3D(x: self.dot(matrixRow1), y: self.dot(matrixRow2), z: self.dot(matrixRow3))
     }
     
     func toString() -> String {

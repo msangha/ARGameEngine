@@ -111,8 +111,14 @@ public class PoseTracker {
         let roll = motionData.attitude.roll
         let yaw = motionData.attitude.yaw
         
-        let v = PoseTracker.UNIT_VECTOR_V.rotate(pitch, roll: roll, yaw: yaw)
-        let u = PoseTracker.UNIT_VECTOR_U.rotate(pitch, roll: roll, yaw: yaw)
+        //let v = PoseTracker.UNIT_VECTOR_V.rotate(pitch, roll: roll, yaw: yaw)
+        //let u = PoseTracker.UNIT_VECTOR_U.rotate(pitch, roll: roll, yaw: yaw)
+        
+        let v = PoseTracker.UNIT_VECTOR_V.rotate(motionData.attitude.rotationMatrix)
+        let u = PoseTracker.UNIT_VECTOR_U.rotate(motionData.attitude.rotationMatrix)
+        
+        println("u: " + u.toString())
+        println("v: " + v.toString())
         
         let orientation = Orientation(u: u, v: v)
         
@@ -126,8 +132,6 @@ public class PoseTracker {
         let rawAcceleration = Point3D(x: motionData.userAcceleration.x, y: motionData.userAcceleration.y, z: motionData.userAcceleration.z)
         let accelerationGlobal = rawAcceleration.rotate(pitch, roll: roll, yaw: yaw)
         
-        // println(accelerationGlobal.toString())
-        
         accelerationAverager.addValue(accelerationGlobal)
 
         velocity = velocity.add(accelerationAverager.getAverage().mul(interval * PoseTracker.GRAVITY_ACCELERATION))
@@ -140,7 +144,7 @@ public class PoseTracker {
         }
         position = position.add(velocity.mul(interval))
         
-        println(position.toString())
+        //println(position.toString())
 
         //print(velocity)
         
