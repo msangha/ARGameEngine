@@ -28,8 +28,8 @@ class ViewController: UIViewController {
         let displayEngine = DisplayEngine()
         let pikachuObject = GameObject(imagePath: "pikachu.gif", playerLocation: GlobalPosition(p: Point3D(), o: Orientation(u: Point3D(x: 1.0, y: 0.0, z: 0.0), v: Point3D(x: 0.0, y: 0.0, z: 1.0), w: Point3D(x: 0.0, y: 1.0, z: 0.0))))
         displayEngine.addObject(pikachuObject)
-        let alfa = 5*M_PI/100.0
-        let currentLocation = GlobalPosition(p: Point3D(), o: Orientation(u: Point3D(x: cos(alfa), y: sin(alfa), z: 0.0), v: Point3D(x: 0.0, y: 0.0, z: 1.0), w: Point3D(x: cos(alfa+M_PI/2.0), y: sin(alfa+M_PI/2.0), z: 0.0)))
+        let alfa = 0.0
+        let currentLocation = GlobalPosition(p: Point3D(x: 0.0, y: 2.0, z: 0.0), o: Orientation(u: Point3D(x: cos(alfa), y: sin(alfa), z: 0.0), v: Point3D(x: 0.0, y: 0.0, z: 1.0), w: Point3D(x: cos(alfa+M_PI/2.0), y: sin(alfa+M_PI/2.0), z: 0.0)))
         let background = CIImage(image: getImageWithColor(UIColor.blackColor(), size: UIScreen.mainScreen().bounds.size))!.imageByCroppingToRect(UIScreen.mainScreen().bounds)
         
         let img = UIImage(CIImage: displayEngine.overlayGameObjects(background, playerPosition: currentLocation))

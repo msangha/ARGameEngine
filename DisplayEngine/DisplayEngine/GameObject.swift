@@ -15,13 +15,13 @@ import UIKit
 // the object that the camera should get. After that the engine overlays the
 // result on top of camera feed.
 class GameObject {
-    let PLAYER_HEIGHT = 1.5
+    let PLAYER_HEIGHT = 200.0
     let PHONE_LENGTH = 0.158
     let PHONE_WIDTH = 0.0778
     let PHONE_DISTANCE = 0.11
     let INITIAL_OBJECT_DISTANCE = 2.5
-    let OBJECT_WIDTH = 0.3
-    let OBJECT_HEIGHT = 0.3
+    let OBJECT_WIDTH = 200.0
+    let OBJECT_HEIGHT = 200.0
     let EPS = 1e-4
     
     var objectImage = CIImage()
@@ -37,6 +37,7 @@ class GameObject {
         // Calculate and init corner positions.
         // Adjust the direction of the camera so that the z-component is removed. we
         // don't want to end up with a GameObject inside a ceiling or floor.
+        print("initially global position: \(playerLocation)")
         var wo = playerLocation.o.w
         wo.z = 0.0
         let lengthOfCO = sqrt(wo.x*wo.x + wo.y*wo.y)
@@ -83,21 +84,21 @@ class GameObject {
         return false
     }
     
-    func getCornersLocations(playerPosition: GlobalPosition) -> [CIVector] {
+    func getCornersLocations(var playerPosition: GlobalPosition) -> [CIVector] {
         var cornerLocations = [CIVector]()
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         for corner in objectCornerPositions {
             let distance = corner.sub(playerPosition.p).dot(playerPosition.o.w)
+            //print("\(distance)")
             let centerPoint = playerPosition.p.add(playerPosition.o.w.mul(distance))
             let dWidth = corner.sub(centerPoint).dot(playerPosition.o.u)
             let dHeight = corner.sub(centerPoint).dot(playerPosition.o.v)
-            print("distance to object=\(distance) with dw=\(dWidth) dh=\(dHeight)")
-            let pixelX = dWidth / sizeAtDistance(distance, focalSize: sizeAtFocal(PHONE_DISTANCE, nonFocalSize: PHONE_WIDTH)) + (Double)(screenSize.width) / 2.0
-            let pixelY = dHeight / sizeAtDistance(distance, focalSize: sizeAtFocal(PHONE_DISTANCE, nonFocalSize: PHONE_LENGTH)) + (Double)(screenSize.height) / 2.0
+            //print("distance to object=\(distance) with dw=\(dWidth) dh=\(dHeight)")
+            let pixelX = dWidth / distance + (Double)(screenSize.width) / 2.0
+            let pixelY = dHeight / distance + (Double)(screenSize.height) / 2.0
             cornerLocations.append(CIVector(x: (CGFloat)(pixelX), y: (CGFloat)(pixelY)))
         }
-        print("\(objectCornerPositions)")
-        print("\(cornerLocations)")
+        print("\(cornerLocations) screenSize=\(screenSize)")
         return cornerLocations
     }
     
