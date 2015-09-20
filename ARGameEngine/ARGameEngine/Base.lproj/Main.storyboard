@@ -1,42 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PUd-nO-Hq8">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="bxa-PN-gAH">
-            <objects>
-                <viewController id="ucY-hG-kI6" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2ia-SY-edP"/>
-                        <viewControllerLayoutGuide type="bottom" id="9CY-s1-BTK"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="i4z-TD-RfN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ae-Pm-0gR">
-                                <rect key="frame" x="183" y="210" width="145" height="30"/>
-                                <state key="normal" title="Log in with Facebook"/>
-                                <connections>
-                                    <segue destination="PUd-nO-Hq8" kind="show" id="GZd-7M-Ym7"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ibu-b0-kQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="108" y="-133"/>
-        </scene>
-        <!--View Controller-->
+        <!--Pose Test View Controller-->
         <scene sceneID="nT9-bH-xag">
             <objects>
-                <viewController id="PUd-nO-Hq8" sceneMemberID="viewController">
+                <viewController id="PUd-nO-Hq8" customClass="PoseTestViewController" customModule="ARGameEngine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qip-9K-Qz3"/>
                         <viewControllerLayoutGuide type="bottom" id="iZs-qG-VPN"/>

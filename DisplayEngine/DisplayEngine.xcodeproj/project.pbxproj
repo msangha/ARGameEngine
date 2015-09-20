@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D55C17651BAE1189005435A8 /* pikachu.gif in Resources */ = {isa = PBXBuildFile; fileRef = D55C17641BAE1189005435A8 /* pikachu.gif */; settings = {ASSET_TAGS = (); }; };
 		D59946191BADD4DA000B94E5 /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59946181BADD4DA000B94E5 /* GameObject.swift */; settings = {ASSET_TAGS = (); }; };
-		D599461B1BADD58D000B94E5 /* Point3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = D599461A1BADD58D000B94E5 /* Point3D.swift */; settings = {ASSET_TAGS = (); }; };
 		D5B879BE1BADCE37006AC9EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B879BD1BADCE37006AC9EE /* AppDelegate.swift */; };
 		D5B879C01BADCE37006AC9EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B879BF1BADCE37006AC9EE /* ViewController.swift */; };
 		D5B879C31BADCE37006AC9EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5B879C11BADCE37006AC9EE /* Main.storyboard */; };
@@ -38,8 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D55C17641BAE1189005435A8 /* pikachu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = pikachu.gif; path = images/pikachu.gif; sourceTree = "<group>"; };
 		D59946181BADD4DA000B94E5 /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameObject.swift; sourceTree = "<group>"; };
-		D599461A1BADD58D000B94E5 /* Point3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Point3D.swift; sourceTree = "<group>"; };
 		D5B879BA1BADCE37006AC9EE /* DisplayEngine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisplayEngine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5B879BD1BADCE37006AC9EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D5B879BF1BADCE37006AC9EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D55C17661BAE118E005435A8 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D55C17641BAE1189005435A8 /* pikachu.gif */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		D5B879B11BADCE37006AC9EE = {
 			isa = PBXGroup;
 			children = (
@@ -105,11 +113,11 @@
 		D5B879BC1BADCE37006AC9EE /* DisplayEngine */ = {
 			isa = PBXGroup;
 			children = (
+				D55C17661BAE118E005435A8 /* images */,
 				D5B879BD1BADCE37006AC9EE /* AppDelegate.swift */,
 				D5B879BF1BADCE37006AC9EE /* ViewController.swift */,
 				D5B879EB1BADCEAD006AC9EE /* DisplayEngine.swift */,
 				D59946181BADD4DA000B94E5 /* GameObject.swift */,
-				D599461A1BADD58D000B94E5 /* Point3D.swift */,
 				D5B879ED1BADD289006AC9EE /* GlobalPosition.swift */,
 				D5B879C11BADCE37006AC9EE /* Main.storyboard */,
 				D5B879C41BADCE37006AC9EE /* Assets.xcassets */,
@@ -243,6 +251,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D55C17651BAE1189005435A8 /* pikachu.gif in Resources */,
 				D5B879C81BADCE37006AC9EE /* LaunchScreen.storyboard in Resources */,
 				D5B879C51BADCE37006AC9EE /* Assets.xcassets in Resources */,
 				D5B879C31BADCE37006AC9EE /* Main.storyboard in Resources */,
@@ -273,7 +282,6 @@
 				D5B879C01BADCE37006AC9EE /* ViewController.swift in Sources */,
 				D5B879EE1BADD289006AC9EE /* GlobalPosition.swift in Sources */,
 				D5B879EC1BADCEAD006AC9EE /* DisplayEngine.swift in Sources */,
-				D599461B1BADD58D000B94E5 /* Point3D.swift in Sources */,
 				D5B879BE1BADCE37006AC9EE /* AppDelegate.swift in Sources */,
 				D59946191BADD4DA000B94E5 /* GameObject.swift in Sources */,
 			);
@@ -416,6 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DisplayEngine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simplex.DisplayEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -427,6 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DisplayEngine/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.simplex.DisplayEngine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
