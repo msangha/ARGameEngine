@@ -9,26 +9,69 @@
 import Foundation
 import CoreMotion
 
-class PoseTracker {
+class Accumulator {
+    let EPS = 0.05
+    let MAX_ELEMENTS = 3
+    var sum = 0.0
+    var measurements = [Double]()
     
+    func addValue(x: Double) -> Void {
+        //if (abs(x) < EPS) {
+        //    measurements.append(0.0)
+        //} else {
+            measurements.append(x)
+            sum += x
+        //}
+
+        if (measurements.count > MAX_ELEMENTS) {
+            sum -= measurements[0]
+            measurements.removeFirst()
+        }
+    }
+
+    func getAverage() -> Double {
+        var ret = sum / (Double)(measurements.count)
+        if (fabs(ret) < EPS) {
+            return 0.0
+        }
+        return ret
+    }
+}
+
+class PointAccumulator {
+    var x = Accumulator()
+    var y = Accumulator()
+    var z = Accumulator()
+    
+    func addValue(val: Point3D) -> Void {
+        x.addValue(val.x)
+        y.addValue(val.y)
+        z.addValue(val.z)
+    }
+    
+    func getAverage() -> Point3D {
+        return Point3D(x: x.getAverage(), y: y.getAverage(), z: z.getAverage())
+    }
+}
+
+public class PoseTracker {
+    
+    let ACCELERATION_EPS = 0.005
     static let sharedInstance: PoseTracker = PoseTracker()
     private let motionManager = CMMotionManager()
     
-    private static let DEFAULT_UPDATE_RATE = 0.01
+    private static let DEFAULT_UPDATE_RATE = 0.1
     private static let GRAVITY_ACCELERATION = -9.81
     private static let K_FILTER_CONSTANT = 0.1
     private static let UNIT_VECTOR_V = Point3D(x: 0, y: 1, z: 0)
     private static let UNIT_VECTOR_U = Point3D(x: 1, y: 0, z: 0)
     
     private var previousTime: NSTimeInterval?
-    
-    private var xVelocity: Double = 0.0
-    private var yVelocity: Double = 0.0
-    private var zVelocity: Double = 0.0
-    
-    private var xPosition: Double = 0.0
-    private var yPosition: Double = 0.0
-    private var zPosition: Double = 0.0
+
+    private var accelerationAverager = PointAccumulator()
+    private var velocity = Point3D()
+    private var position = Point3D()
+    public var globalPosition = GlobalPosition()
     
     private var rollingXacc: Double = 0.0
     private var rollingYacc: Double = 0.0
@@ -41,7 +84,7 @@ class PoseTracker {
         previousTime = NSDate.timeIntervalSinceReferenceDate()
         motionManager.startDeviceMotionUpdatesToQueue(NSOperationQueue.mainQueue()) { (motionData: CMDeviceMotion?, error: NSError?) in
             if (error != nil){
-                println(error?.description)
+                print(error?.description)
                 return
             }
             self.pose = self.processMotionData(motionData!)
@@ -69,20 +112,20 @@ class PoseTracker {
         rollingZacc = motionData.userAcceleration.z * PoseTracker.K_FILTER_CONSTANT + rollingZacc*(1 - PoseTracker.K_FILTER_CONSTANT)
         
         // subtract low-pass values to create high pass filter
-        let correctedAccX = motionData.userAcceleration.x //- rollingXacc
-        let correctedAccY = motionData.userAcceleration.y //- rollingYacc
-        let correctedAccZ = motionData.userAcceleration.z //- rollingZacc
-        
-        xVelocity += correctedAccX * interval * PoseTracker.GRAVITY_ACCELERATION
-        yVelocity += correctedAccY * interval * PoseTracker.GRAVITY_ACCELERATION
-        zVelocity += correctedAccZ * interval * PoseTracker.GRAVITY_ACCELERATION
-        
-        xPosition += xVelocity * interval
-        yPosition += yVelocity * interval
-        zPosition += zVelocity * interval
-        
-        let position = Point3D(x: xPosition, y: yPosition, z: zPosition)
-        println(position.toString())
+        let acceleration = Point3D(x: motionData.userAcceleration.x, y: motionData.userAcceleration.y, z: motionData.userAcceleration.z)
+        accelerationAverager.addValue(acceleration)
+
+        velocity = velocity.add(accelerationAverager.getAverage().mul(interval * PoseTracker.GRAVITY_ACCELERATION))
+        if (accelerationAverager.getAverage().len2D() < ACCELERATION_EPS) {
+            velocity.x = 0.0
+            velocity.y = 0.0
+        }
+        if (accelerationAverager.getAverage().len() < ACCELERATION_EPS) {
+            velocity = Point3D()
+        }
+        position = position.add(velocity.mul(interval))
+
+        //print(velocity)
         
         let pitch = motionData.attitude.pitch
         let roll = motionData.attitude.roll
@@ -93,7 +136,10 @@ class PoseTracker {
         
         let orientation = Orientation(u: u, v: v)
         
-        return GlobalPosition(p: position, o: orientation)
+        if (globalPosition.o.u.len() > 0.0) {} else {
+            globalPosition = GlobalPosition(p: position, o: orientation)
+        }
+        return globalPosition
         
         //println("\(pitch), \(roll), \(yaw)")
         

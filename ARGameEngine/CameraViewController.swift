@@ -45,6 +45,7 @@ class CameraViewController: UIViewController {
     
     private func beginSession() {
         var error: NSError?
+        /*
         captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &error))
         
         if (error != nil) {
@@ -55,6 +56,7 @@ class CameraViewController: UIViewController {
         self.view.layer.addSublayer(previewLayer)
         previewLayer?.frame = self.view.layer.frame
         captureSession.startRunning()
+        */
     }
     
 }
