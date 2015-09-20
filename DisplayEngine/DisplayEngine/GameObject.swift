@@ -22,7 +22,8 @@ class GameObject {
     let INITIAL_OBJECT_DISTANCE = 2.5
     let OBJECT_WIDTH = 100.0
     let OBJECT_HEIGHT = 100.0
-    let EPS = 1e-4
+    let EPS = 0.05
+    let MAX_DISTANCE = 9.0
     
     var objectImage = CIImage()
     var playerStartPosition = Point3D()
@@ -80,10 +81,11 @@ class GameObject {
         objectCornerPositions.append(bottomRightCorner)
     }
 
-    func isObjectBehind(playerPosition: GlobalPosition) -> Bool {
+    func isObjectInvisible(playerPosition: GlobalPosition) -> Bool {
         for corner in objectCornerPositions {
             let distance = corner.sub(playerPosition.p).dot(playerPosition.o.w)
-            if (distance < EPS) {
+            print("distance=\(distance)")
+            if (distance < EPS || distance > MAX_DISTANCE) {
                 return true
             }
         }
@@ -104,7 +106,7 @@ class GameObject {
             let pixelY = dHeight / distance + (Double)(screenSize.height) / 2.0
             cornerLocations.append(CIVector(x: (CGFloat)(pixelX), y: (CGFloat)(pixelY)))
         }
-        //print("\(cornerLocations) screenSize=\(screenSize)")
+        print("\(cornerLocations) screenSize=\(screenSize)")
         return cornerLocations
     }
     
