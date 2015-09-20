@@ -12,10 +12,8 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var Menu: UIBarButtonItem!
-
     @IBOutlet weak var pokeBeacon: UIImageView!
-    @IBAction func cameraButton(sender: AnyObject) {
-        
+    @IBAction func cameraBUtton(sender: AnyObject) {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,10 +22,12 @@ class ViewController: UIViewController {
         
         Menu.action =  Selector("revealToggle:")
         
+        //self.view.backgroundColor = UIColor.yellowColor()
+
+        
         var pokeXPosition = pokeBeacon.frame.origin.x
         var pokeYPosition = pokeBeacon.frame.origin.y
-        print(pokeXPosition)
-        print(pokeYPosition)
+
         
         let origin = CGPointMake(190,480)
         

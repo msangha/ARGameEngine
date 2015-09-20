@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="GXu-lJ-9c7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="g8W-EA-yuK">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="vTk-qi-vun">
+            <objects>
+                <viewController id="g8W-EA-yuK" sceneMemberID="viewController">
+                    <button key="view" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ooq-Pi-KMP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" image="facebook_square-512.png"/>
+                        <connections>
+                            <segue destination="GXu-lJ-9c7" kind="show" id="qd0-DD-9R3"/>
+                        </connections>
+                    </button>
+                    <connections>
+                        <segue destination="GXu-lJ-9c7" kind="presentation" id="jMy-zc-vbK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCw-mF-dr8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-234" y="204"/>
+        </scene>
         <!--Reveal View Controller-->
         <scene sceneID="zNV-XJ-iht">
             <objects>
@@ -15,8 +35,14 @@
                     <view key="view" contentMode="scaleToFill" id="mZK-uD-R3k">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSq-Yv-vT6">
+                                <rect key="frame" x="184" y="233" width="30" height="30"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IHn-Q8-84m"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <segue destination="DUr-JH-uP7" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="kRQ-io-FAb"/>
@@ -83,40 +109,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJt-vi-ozx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJt-vi-ozx">
                                 <rect key="frame" x="285" y="161" width="30" height="30"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pokeball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q1n-kz-W9n">
-                                <rect key="frame" x="250" y="356" width="100" height="100"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5Q-6E-TTE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5Q-6E-TTE">
                                 <rect key="frame" x="345" y="516" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UA-Zh-fQN">
-                                <rect key="frame" x="255" y="147" width="100" height="100"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Txt-cP-doW">
+                                <rect key="frame" x="250" y="161" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="ImI-R2-p2e"/>
-                                    <constraint firstAttribute="width" constant="100" id="Oue-bE-8pN"/>
+                                    <constraint firstAttribute="height" constant="100" id="34F-5o-bQd"/>
+                                    <constraint firstAttribute="width" constant="100" id="kBX-IQ-nCN"/>
                                 </constraints>
                                 <state key="normal" image="camera_icon2x.png"/>
                                 <connections>
-                                    <action selector="cameraButton:" destination="Cv9-nj-fGm" eventType="touchUpInside" id="jsp-Vd-gHu"/>
+                                    <action selector="pokeBeacon:" destination="Cv9-nj-fGm" eventType="touchUpInside" id="lug-Wr-xih"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q1n-kz-W9n">
+                                <rect key="frame" x="250" y="423" width="100" height="100"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="J5Q-6E-TTE" firstAttribute="centerX" secondItem="4UA-Zh-fQN" secondAttribute="centerX" constant="40" id="75d-Gx-fjc"/>
-                            <constraint firstItem="J5Q-6E-TTE" firstAttribute="top" secondItem="Q1n-kz-W9n" secondAttribute="bottom" constant="60" id="9ip-cg-PeY"/>
-                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="centerX" secondItem="zJt-vi-ozx" secondAttribute="centerX" constant="5" id="IB9-rw-b4P"/>
-                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="top" secondItem="m5x-zj-oCb" secondAttribute="bottom" constant="83" id="XTa-zF-mW9"/>
-                            <constraint firstItem="bmM-9t-tGi" firstAttribute="top" secondItem="Q1n-kz-W9n" secondAttribute="bottom" constant="143" id="cXN-PY-5p3"/>
-                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="leading" secondItem="Q1n-kz-W9n" secondAttribute="leading" constant="5" id="cqv-0f-nAP"/>
-                            <constraint firstItem="Q1n-kz-W9n" firstAttribute="centerX" secondItem="5oh-ve-aj8" secondAttribute="centerX" id="hhD-i2-SFN"/>
-                            <constraint firstItem="bmM-9t-tGi" firstAttribute="top" secondItem="J5Q-6E-TTE" secondAttribute="bottom" constant="63" id="oaF-ik-AWb"/>
+                            <constraint firstItem="Txt-cP-doW" firstAttribute="top" secondItem="zJt-vi-ozx" secondAttribute="top" id="FVr-0O-mJe"/>
+                            <constraint firstItem="Q1n-kz-W9n" firstAttribute="top" secondItem="Txt-cP-doW" secondAttribute="bottom" constant="162" id="PS9-OG-Z9U"/>
+                            <constraint firstItem="Txt-cP-doW" firstAttribute="centerX" secondItem="zJt-vi-ozx" secondAttribute="centerX" id="YvP-t2-XWP"/>
+                            <constraint firstAttribute="trailing" secondItem="J5Q-6E-TTE" secondAttribute="trailing" constant="255" id="bNI-By-0oD"/>
+                            <constraint firstItem="Q1n-kz-W9n" firstAttribute="centerX" secondItem="5oh-ve-aj8" secondAttribute="centerX" id="fDL-2q-0ww"/>
+                            <constraint firstItem="Q1n-kz-W9n" firstAttribute="leading" secondItem="Txt-cP-doW" secondAttribute="leading" id="gxf-TH-jZu"/>
+                            <constraint firstItem="zJt-vi-ozx" firstAttribute="top" secondItem="m5x-zj-oCb" secondAttribute="bottom" constant="97" id="oA6-8Y-dsy"/>
+                            <constraint firstItem="bmM-9t-tGi" firstAttribute="top" secondItem="J5Q-6E-TTE" secondAttribute="bottom" constant="84" id="oaF-ik-AWb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="snZ-vs-z6Y">
@@ -129,11 +155,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LC-gs-xa6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="-642"/>
+            <point key="canvasLocation" x="1660" y="-898"/>
         </scene>
     </scenes>
     <resources>
         <image name="camera_icon2x.png" width="256" height="256"/>
+        <image name="facebook_square-512.png" width="100" height="100"/>
         <image name="pokeball.png" width="100" height="100"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="jMy-zc-vbK"/>
+    </inferredMetricsTieBreakers>
 </document>

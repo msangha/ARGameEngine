@@ -24,6 +24,7 @@
 		A8E034B91BAE644B0071FCAD /* camera_icon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E034B81BAE644B0071FCAD /* camera_icon2x.png */; settings = {ASSET_TAGS = (); }; };
 		A8E034BB1BAE6B600071FCAD /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E034BA1BAE6B600071FCAD /* LFTPulseAnimation.swift */; settings = {ASSET_TAGS = (); }; };
 		A8E034BD1BAE77EC0071FCAD /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E034BC1BAE77EC0071FCAD /* Async.swift */; settings = {ASSET_TAGS = (); }; };
+		A8E034C11BAE8EC90071FCAD /* facebook_square-512.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E034C01BAE8EC90071FCAD /* facebook_square-512.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		A8E034B81BAE644B0071FCAD /* camera_icon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon2x.png; path = ../../../../../camera_icon2x.png; sourceTree = "<group>"; };
 		A8E034BA1BAE6B600071FCAD /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LFTPulseAnimation.swift; path = "../../../../../../Downloads/SwiftPulse-master/LFTPulseAnimation.swift"; sourceTree = "<group>"; };
 		A8E034BC1BAE77EC0071FCAD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		A8E034C01BAE8EC90071FCAD /* facebook_square-512.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook_square-512.png"; path = "../../../../../facebook_square-512.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				A8A04CE01BAE189300294249 /* BackTableVC.swift */,
 				A8E034B41BAE592A0071FCAD /* pokeball.png */,
 				A8E034BA1BAE6B600071FCAD /* LFTPulseAnimation.swift */,
+				A8E034C01BAE8EC90071FCAD /* facebook_square-512.png */,
 				A8E034B81BAE644B0071FCAD /* camera_icon2x.png */,
 				A8A04CAA1BADE0D800294249 /* AppDelegate.swift */,
 				A8A04CAC1BADE0D800294249 /* ViewController.swift */,
@@ -292,6 +295,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E034C11BAE8EC90071FCAD /* facebook_square-512.png in Resources */,
 				A8A04CB51BADE0D800294249 /* LaunchScreen.storyboard in Resources */,
 				A8E034B51BAE592A0071FCAD /* pokeball.png in Resources */,
 				A8E034B91BAE644B0071FCAD /* camera_icon2x.png in Resources */,
