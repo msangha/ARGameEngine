@@ -43,7 +43,7 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         imageView.frame = self.view.layer.frame
         self.view.addSubview(imageView)
         
-        captureSession.sessionPreset = AVCaptureSessionPresetHigh
+        captureSession.sessionPreset = AVCaptureSessionPresetMedium
         
         let devices = AVCaptureDevice.devices()
         for device in devices {

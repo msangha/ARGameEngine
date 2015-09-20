@@ -61,7 +61,7 @@ public class PoseTracker {
     static let sharedInstance: PoseTracker = PoseTracker()
     private let motionManager = CMMotionManager()
     
-    private static let DEFAULT_UPDATE_RATE = 0.1
+    private static let DEFAULT_UPDATE_RATE = 0.2
     private static let GRAVITY_ACCELERATION = -9.81
     private static let K_FILTER_CONSTANT = 0.1
     private static let UNIT_VECTOR_V = Point3D(x: 0, y: 1, z: 0)
@@ -114,6 +114,9 @@ public class PoseTracker {
         let v = PoseTracker.UNIT_VECTOR_V.rotate(pitch, roll: roll, yaw: yaw)
         let u = PoseTracker.UNIT_VECTOR_U.rotate(pitch, roll: roll, yaw: yaw)
         
+        assert(v.len() > 1.0-1e-4)
+        assert(u.len() > 1.0-1e-4)
+        
         let orientation = Orientation(u: u, v: v)
         
         /*// rolling mean values (low pass filter)
@@ -141,14 +144,14 @@ public class PoseTracker {
         //position = position.add(velocity.mul(interval))
         
         //print(position.toString())
-        print("u=\(u.toString()) v=\(v.toString())")
+        //print("u=\(u.toString()) v=\(v.toString())")
         //println(position.toString())
 
         /*
         if (globalPosition.o.u.len() > 0.0) {} else { // TODO(aliamir): remove
             globalPosition = GlobalPosition()
             globalPosition.o = Orientation(u: Point3D(x: 1.0, y: 0.0, z: 0.0), v: Point3D(x: 0.0, y: 0.0, z: 1.0))*/
-            globalPosition = GlobalPosition(p: position, o: orientation)
+        globalPosition = GlobalPosition(p: position, o: orientation)
         //}
         return globalPosition
         

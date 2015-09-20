@@ -31,7 +31,7 @@ class DisplayEngine {
 
             let cornerLocations = object.getCornersLocations(playerPosition)
             let transformedImg = object.objectImage.imageByApplyingFilter("CIPerspectiveTransform", withInputParameters: ["inputImage": object.objectImage, "inputTopLeft": cornerLocations[0], "inputTopRight": cornerLocations[1], "inputBottomRight": cornerLocations[3], "inputBottomLeft": cornerLocations[2]]).imageByCroppingToRect(currentFrame.extent)
-            let blendFilter = CIFilter(name: "CISourceAtopCompositing", withInputParameters: ["inputImage": transformedImg, "inputBackgroundImage": currentFrame])!
+            let blendFilter = CIFilter(name: "CIScreenBlendMode", withInputParameters: ["inputImage": transformedImg, "inputBackgroundImage": currentFrame])!
             currentFrame = blendFilter.outputImage!
         }
         return currentFrame
