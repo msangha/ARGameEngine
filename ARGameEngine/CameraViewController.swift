@@ -15,6 +15,9 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     private var captureDevice: AVCaptureDevice?
     private var previewLayer: AVCaptureVideoPreviewLayer?
     private var imageView: UIImageView = UIImageView()
+    var displayEngine = DisplayEngine()
+    var tracker = PoseTracker()
+    
     var displayVideo: Bool = false {
         didSet{
             if displayVideo {
@@ -57,6 +60,8 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         
         // for testing
         displayVideo = true
+        
+        tracker.startTracking()
     }
     
     private func setupSession() {
@@ -82,8 +87,13 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         var imageRotationMatrix = CGAffineTransformMakeRotation(CGFloat(-1*M_PI_2))
         var ciImage: CIImage = CIImage(CVPixelBuffer: CMSampleBufferGetImageBuffer(sampleBuffer)!).imageByApplyingTransform(imageRotationMatrix)
+        ciImage = ciImage.imageByApplyingTransform(CGAffineTransformTranslate(CGAffineTransformMakeTranslation(0.0, -ciImage.extent.origin.y), 0.0, 0.0))
         var newCIImage: CIImage = mockChangeImage(ciImage)
-        var uiImage: UIImage = UIImage(CIImage: newCIImage)
+        if (displayEngine.objects.isEmpty && tracker.globalPosition.o.u.len() > 0.0) {
+            var pikachuObject = GameObject(imagePath: "pikachu.gif", playerLocation: tracker.globalPosition)
+            displayEngine.addObject(pikachuObject)
+        }
+        var uiImage: UIImage = UIImage(CIImage: displayEngine.overlayGameObjects(newCIImage, playerPosition: tracker.globalPosition))
         imageView.image = uiImage
     }
     

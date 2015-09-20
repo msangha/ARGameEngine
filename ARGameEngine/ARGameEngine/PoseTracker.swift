@@ -136,8 +136,10 @@ public class PoseTracker {
         
         let orientation = Orientation(u: u, v: v)
         
-        if (globalPosition.o.u.len() > 0.0) {} else {
-            globalPosition = GlobalPosition(p: position, o: orientation)
+        if (globalPosition.o.u.len() > 0.0) {} else { // TODO(aliamir): remove
+            globalPosition = GlobalPosition()
+            globalPosition.o = Orientation(u: Point3D(x: 1.0, y: 0.0, z: 0.0), v: Point3D(x: 0.0, y: 0.0, z: 1.0))
+            //globalPosition = GlobalPosition(p: position, o: orientation)
         }
         return globalPosition
         

@@ -88,7 +88,7 @@ public struct Orientation {
     var u = Point3D()
     var v = Point3D()
     var w: Point3D {
-        return u.cross(v)
+        return v.cross(u)
     }
 }
 
