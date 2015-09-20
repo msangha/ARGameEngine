@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--Pose Test View Controller-->
+        <!--Camera View Controller-->
         <scene sceneID="nT9-bH-xag">
             <objects>
-                <viewController id="PUd-nO-Hq8" customClass="PoseTestViewController" customModule="ARGameEngine" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PUd-nO-Hq8" customClass="CameraViewController" customModule="ARGameEngine" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Qip-9K-Qz3"/>
                         <viewControllerLayoutGuide type="bottom" id="iZs-qG-VPN"/>
