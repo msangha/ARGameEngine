@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		88EC7FE3F0734F0E68F7434E /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0380D4F415358795459A5ACC /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A8A04CAB1BADE0D800294249 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A04CAA1BADE0D800294249 /* AppDelegate.swift */; };
 		A8A04CAD1BADE0D800294249 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A04CAC1BADE0D800294249 /* ViewController.swift */; };
 		A8A04CB01BADE0D800294249 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A8A04CAE1BADE0D800294249 /* Main.storyboard */; };
@@ -21,6 +22,8 @@
 		A8A04CF21BAE2C5700294249 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8A04CF11BAE2C5700294249 /* CoreGraphics.framework */; };
 		A8E034B51BAE592A0071FCAD /* pokeball.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E034B41BAE592A0071FCAD /* pokeball.png */; settings = {ASSET_TAGS = (); }; };
 		A8E034B91BAE644B0071FCAD /* camera_icon2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E034B81BAE644B0071FCAD /* camera_icon2x.png */; settings = {ASSET_TAGS = (); }; };
+		A8E034BB1BAE6B600071FCAD /* LFTPulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E034BA1BAE6B600071FCAD /* LFTPulseAnimation.swift */; settings = {ASSET_TAGS = (); }; };
+		A8E034BD1BAE77EC0071FCAD /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8E034BC1BAE77EC0071FCAD /* Async.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0380D4F415358795459A5ACC /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52CAC4116A63C6108F462C18 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		83AA49EBB0C6959DAB609064 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		A8A04CA71BADE0D800294249 /* ARGameUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARGameUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8A04CAA1BADE0D800294249 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A8A04CAC1BADE0D800294249 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +70,8 @@
 		A8A04CF11BAE2C5700294249 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A8E034B41BAE592A0071FCAD /* pokeball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pokeball.png; path = ../../../../../pokeball.png; sourceTree = "<group>"; };
 		A8E034B81BAE644B0071FCAD /* camera_icon2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = camera_icon2x.png; path = ../../../../../camera_icon2x.png; sourceTree = "<group>"; };
+		A8E034BA1BAE6B600071FCAD /* LFTPulseAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LFTPulseAnimation.swift; path = "../../../../../../Downloads/SwiftPulse-master/LFTPulseAnimation.swift"; sourceTree = "<group>"; };
+		A8E034BC1BAE77EC0071FCAD /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +82,7 @@
 				A8A04CF21BAE2C5700294249 /* CoreGraphics.framework in Frameworks */,
 				A8A04CF01BAE2C4F00294249 /* Foundation.framework in Frameworks */,
 				A8A04CEE1BAE2C4300294249 /* UIKit.framework in Frameworks */,
+				88EC7FE3F0734F0E68F7434E /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A226F690DE96B1388F410AD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				52CAC4116A63C6108F462C18 /* Pods.debug.xcconfig */,
+				83AA49EBB0C6959DAB609064 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A8A04C9E1BADE0D800294249 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +120,7 @@
 				A8A04CBE1BADE0D800294249 /* ARGameUITests */,
 				A8A04CC91BADE0D800294249 /* ARGameUIUITests */,
 				A8A04CA81BADE0D800294249 /* Products */,
+				9A226F690DE96B1388F410AD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -120,6 +139,7 @@
 			children = (
 				A8A04CE01BAE189300294249 /* BackTableVC.swift */,
 				A8E034B41BAE592A0071FCAD /* pokeball.png */,
+				A8E034BA1BAE6B600071FCAD /* LFTPulseAnimation.swift */,
 				A8E034B81BAE644B0071FCAD /* camera_icon2x.png */,
 				A8A04CAA1BADE0D800294249 /* AppDelegate.swift */,
 				A8A04CAC1BADE0D800294249 /* ViewController.swift */,
@@ -130,6 +150,7 @@
 				A8A04CDA1BADF7A900294249 /* SWRevealViewController.m */,
 				A8A04CD91BADF7A900294249 /* SWRevealViewController.h */,
 				A8A04CB61BADE0D800294249 /* Info.plist */,
+				A8E034BC1BAE77EC0071FCAD /* Async.swift */,
 			);
 			path = ARGameUI;
 			sourceTree = "<group>";
@@ -159,6 +180,7 @@
 				A8A04CED1BAE2C4300294249 /* UIKit.framework */,
 				A8A04CEF1BAE2C4F00294249 /* Foundation.framework */,
 				A8A04CF11BAE2C5700294249 /* CoreGraphics.framework */,
+				0380D4F415358795459A5ACC /* Pods.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,9 +192,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A8A04CCF1BADE0D800294249 /* Build configuration list for PBXNativeTarget "ARGameUI" */;
 			buildPhases = (
+				C564BE8F1B09BBA08E1BA823 /* Check Pods Manifest.lock */,
 				A8A04CA31BADE0D800294249 /* Sources */,
 				A8A04CA41BADE0D800294249 /* Frameworks */,
 				A8A04CA51BADE0D800294249 /* Resources */,
+				4B1C162E4DE88D9D9F96D35B /* Copy Pods Resources */,
+				10A185B8D8196C2EE12A9991 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -291,14 +316,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		10A185B8D8196C2EE12A9991 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B1C162E4DE88D9D9F96D35B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C564BE8F1B09BBA08E1BA823 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A8A04CA31BADE0D800294249 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A8E034BB1BAE6B600071FCAD /* LFTPulseAnimation.swift in Sources */,
 				A8A04CAD1BADE0D800294249 /* ViewController.swift in Sources */,
 				A8A04CAB1BADE0D800294249 /* AppDelegate.swift in Sources */,
 				A8A04CE11BAE189300294249 /* BackTableVC.swift in Sources */,
+				A8E034BD1BAE77EC0071FCAD /* Async.swift in Sources */,
 				A8A04CDB1BADF7A900294249 /* SWRevealViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +514,7 @@
 		};
 		A8A04CD01BADE0D800294249 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52CAC4116A63C6108F462C18 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -453,6 +529,7 @@
 		};
 		A8A04CD11BADE0D800294249 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83AA49EBB0C6959DAB609064 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

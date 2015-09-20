@@ -15,7 +15,7 @@ class CameraFeedViewController: UIViewController {
     var previewView: UIView!;
     var videoDataOutput: AVCaptureVideoDataOutput!;
     var videoDataOutputQueue : dispatch_queue_t!;
-    var previewLayer:AVCaptureVideoPreviewLayer!;
+    var previewLayer:CALayer!;
     var captureDevice : AVCaptureDevice!
     let session=AVCaptureSession();
     var currentFrame:CIImage!
@@ -85,28 +85,31 @@ extension CameraFeedViewController:  AVCaptureVideoDataOutputSampleBufferDelegat
         self.videoDataOutput = AVCaptureVideoDataOutput();
         self.videoDataOutput.alwaysDiscardsLateVideoFrames=true;
         self.videoDataOutputQueue = dispatch_queue_create("VideoDataOutputQueue", DISPATCH_QUEUE_SERIAL);
+
         self.videoDataOutput.setSampleBufferDelegate(self, queue:self.videoDataOutputQueue);
         if session.canAddOutput(self.videoDataOutput){
             session.addOutput(self.videoDataOutput);
         }
         self.videoDataOutput.connectionWithMediaType(AVMediaTypeVideo).enabled = true;
         
-        self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session);
-        self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-        
+        //self.previewLayer = AVCaptureVideoPreviewLayer(session: self.session);
+        self.previewLayer = CALayer()
+        //self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspect;
         var rootLayer: CALayer = self.previewView.layer;
         rootLayer.masksToBounds = true;
         self.previewLayer.frame = rootLayer.bounds;
         rootLayer.addSublayer(self.previewLayer);
+
         session.startRunning();
-        
     }
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         currentFrame = self.convertImageFromCMSampleBufferRef(sampleBuffer);
-        dispatch_sync(dispatch_get_main_queue()) {
+        dispatch_async(self.videoDataOutputQueue) {
+            var layer = CALayer()
             var context = CIContext()
-            self.previewLayer.contents = context.createCGImage(self.currentFrame, fromRect: (self.currentFrame?.extent)!)
+            layer.contents = context.createCGImage(self.currentFrame, fromRect: (self.currentFrame?.extent)!)
+            self.previewLayer.addSublayer(layer)
         }
     }
     
