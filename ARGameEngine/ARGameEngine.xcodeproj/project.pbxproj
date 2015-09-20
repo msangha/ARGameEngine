@@ -16,6 +16,10 @@
 		7AD43D1E1BADC9640076849F /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D1D1BADC9640076849F /* CameraViewController.swift */; };
 		7AD43D201BADCA560076849F /* PoseTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D1F1BADCA560076849F /* PoseTracker.swift */; };
 		7AD43D321BAE0CB40076849F /* GlobalPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD43D2F1BAE0CB40076849F /* GlobalPosition.swift */; };
+		D5938CC01BAE554400BF83CC /* CameraFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5938CBF1BAE554400BF83CC /* CameraFeedViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		D5938CC31BAE599000BF83CC /* DisplayEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5938CC11BAE599000BF83CC /* DisplayEngine.swift */; settings = {ASSET_TAGS = (); }; };
+		D5938CC41BAE599000BF83CC /* GameObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5938CC21BAE599000BF83CC /* GameObject.swift */; settings = {ASSET_TAGS = (); }; };
+		D5938CC71BAE5A2000BF83CC /* pikachu.gif in Resources */ = {isa = PBXBuildFile; fileRef = D5938CC61BAE5A2000BF83CC /* pikachu.gif */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +46,10 @@
 		7AD43D1D1BADC9640076849F /* CameraViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CameraViewController.swift; path = ../CameraViewController.swift; sourceTree = "<group>"; };
 		7AD43D1F1BADCA560076849F /* PoseTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PoseTracker.swift; sourceTree = "<group>"; };
 		7AD43D2F1BAE0CB40076849F /* GlobalPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GlobalPosition.swift; path = ../../DisplayEngine/DisplayEngine/GlobalPosition.swift; sourceTree = "<group>"; };
+		D5938CBF1BAE554400BF83CC /* CameraFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFeedViewController.swift; sourceTree = "<group>"; };
+		D5938CC11BAE599000BF83CC /* DisplayEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DisplayEngine.swift; path = ../../DisplayEngine/DisplayEngine/DisplayEngine.swift; sourceTree = "<group>"; };
+		D5938CC21BAE599000BF83CC /* GameObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameObject.swift; path = ../../DisplayEngine/DisplayEngine/GameObject.swift; sourceTree = "<group>"; };
+		D5938CC61BAE5A2000BF83CC /* pikachu.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = pikachu.gif; path = ../../DisplayEngine/DisplayEngine/images/pikachu.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +95,10 @@
 				7AD43D211BADD2B70076849F /* PoseTracking */,
 				7AD43D141BADC3A20076849F /* UI */,
 				7AD43CF41BADC2B40076849F /* AppDelegate.swift */,
+				D5938CC51BAE5A1000BF83CC /* images */,
 				7AD43CFB1BADC2B40076849F /* Images.xcassets */,
 				7AD43D1D1BADC9640076849F /* CameraViewController.swift */,
+				D5938CBF1BAE554400BF83CC /* CameraFeedViewController.swift */,
 				7AD43CF21BADC2B40076849F /* Supporting Files */,
 			);
 			path = ARGameEngine;
@@ -140,9 +150,19 @@
 		7AD43D2C1BAE0C9F0076849F /* DisplayEngine */ = {
 			isa = PBXGroup;
 			children = (
+				D5938CC11BAE599000BF83CC /* DisplayEngine.swift */,
+				D5938CC21BAE599000BF83CC /* GameObject.swift */,
 				7AD43D2F1BAE0CB40076849F /* GlobalPosition.swift */,
 			);
 			name = DisplayEngine;
+			sourceTree = "<group>";
+		};
+		D5938CC51BAE5A1000BF83CC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D5938CC61BAE5A2000BF83CC /* pikachu.gif */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,11 +210,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Manjot Sangha";
 				TargetAttributes = {
 					7AD43CEE1BADC2B40076849F = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 5QKT5KZ4LG;
 					};
 					7AD43D031BADC2B40076849F = {
 						CreatedOnToolsVersion = 6.4;
@@ -226,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5938CC71BAE5A2000BF83CC /* pikachu.gif in Resources */,
 				7AD43CFA1BADC2B40076849F /* Main.storyboard in Resources */,
 				7AD43CFF1BADC2B40076849F /* LaunchScreen.xib in Resources */,
 				7AD43CFC1BADC2B40076849F /* Images.xcassets in Resources */,
@@ -247,7 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AD43D321BAE0CB40076849F /* GlobalPosition.swift in Sources */,
+				D5938CC31BAE599000BF83CC /* DisplayEngine.swift in Sources */,
+				D5938CC01BAE554400BF83CC /* CameraFeedViewController.swift in Sources */,
 				7AD43CF71BADC2B40076849F /* PoseTestViewController.swift in Sources */,
+				D5938CC41BAE599000BF83CC /* GameObject.swift in Sources */,
 				7AD43CF51BADC2B40076849F /* AppDelegate.swift in Sources */,
 				7AD43D1E1BADC9640076849F /* CameraViewController.swift in Sources */,
 				7AD43D201BADCA560076849F /* PoseTracker.swift in Sources */,
@@ -313,6 +338,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -377,9 +403,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ARGameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ourcompany.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -387,9 +417,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ARGameEngine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ourcompany.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -407,6 +441,7 @@
 				);
 				INFOPLIST_FILE = ARGameEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ourcompany.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARGameEngine.app/ARGameEngine";
 			};
@@ -422,6 +457,7 @@
 				);
 				INFOPLIST_FILE = ARGameEngineTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ourcompany.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ARGameEngine.app/ARGameEngine";
 			};

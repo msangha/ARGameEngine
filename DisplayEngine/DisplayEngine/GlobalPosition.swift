@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Point3D {
+public struct Point3D {
     var x = 0.0
     var y = 0.0
     var z = 0.0
@@ -31,6 +31,14 @@ struct Point3D {
   
     func cross(point: Point3D) -> Point3D {
       return Point3D(x: y * point.z - z * point.y, y: -(x * point.z - z * point.x), z: x * point.y - y * point.x)
+    }
+    
+    func len() -> Double {
+        return sqrt(dot(self))
+    }
+    
+    func len2D() -> Double {
+        return sqrt(x*x + y*y)
     }
     
     // rotate about x-axis
@@ -76,7 +84,7 @@ struct Point3D {
 // phone, u = faces to the right when looking at the screen, v = faces up when
 // looking at the screen, w = faces outwards when looking at the screen.
 // w = v x u (cross product). All of the vectors are unit length.
-struct Orientation {
+public struct Orientation {
     var u = Point3D()
     var v = Point3D()
     var w: Point3D {
@@ -87,7 +95,7 @@ struct Orientation {
 // Structure that holds the essential position/orientation values, like x, y, z,
 // and orientation details. The accelerometer/gyroscope tracker should return an
 // instance of this struct.
-struct GlobalPosition {
+public struct GlobalPosition {
   var p = Point3D()
   var o = Orientation()
 }
