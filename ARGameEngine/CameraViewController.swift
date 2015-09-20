@@ -60,18 +60,16 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     }
     
     private func setupSession() {
-        var error: NSError?
-        
-        captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &error))
-
-        if (error != nil) {
-            println("Error: \(error?.description)")
+        do {
+            try captureSession.addInput(AVCaptureDeviceInput(device: captureDevice))
+        } catch {
+            print("ERROR!!!!")
         }
         
         let dataOutput = AVCaptureVideoDataOutput()
         
         dataOutput.alwaysDiscardsLateVideoFrames = true
-        dataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]
+        //dataOutput.videoSettings = [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]
         dataOutput.setSampleBufferDelegate(self, queue: dispatch_get_main_queue())
         
         captureSession.addOutput(dataOutput)
@@ -83,9 +81,9 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         var imageRotationMatrix = CGAffineTransformMakeRotation(CGFloat(-1*M_PI_2))
-        var ciImage: CIImage = CIImage(CVPixelBuffer: CMSampleBufferGetImageBuffer(sampleBuffer)).imageByApplyingTransform(imageRotationMatrix)
+        var ciImage: CIImage = CIImage(CVPixelBuffer: CMSampleBufferGetImageBuffer(sampleBuffer)!).imageByApplyingTransform(imageRotationMatrix)
         var newCIImage: CIImage = mockChangeImage(ciImage)
-        var uiImage: UIImage = UIImage(CIImage: newCIImage)!
+        var uiImage: UIImage = UIImage(CIImage: newCIImage)
         imageView.image = uiImage
     }
     
