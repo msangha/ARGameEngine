@@ -1,7 +1,0 @@
-version: "Apple Swift version 1.2 (swiftlang-602.0.53.1 clang-602.0.53)"
-options: "b62841a3675837529b2baea8f1ab7103"
-inputs: 
-- "/Users/Manjot/Documents/HackMIT2015/ARGameEngine/ARGameEngine/ARGameEngine/ViewController.swift"
-- "/Users/Manjot/Documents/HackMIT2015/ARGameEngine/ARGameEngine/ARGameEngine/AppDelegate.swift"
-- "/Users/Manjot/Documents/HackMIT2015/ARGameEngine/ARGameEngine/CameraViewController.swift"
-- "/Users/Manjot/Documents/HackMIT2015/ARGameEngine/ARGameEngine/ARGameEngine/PoseTracker.swift"
