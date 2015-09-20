@@ -12,15 +12,17 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var Menu: UIBarButtonItem!
-    
+
+    @IBAction func cameraButton(sender: AnyObject) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         Menu.target = self.revealViewController()
         
         Menu.action =  Selector("revealToggle:")
-        	
-
+        
 
     }
 

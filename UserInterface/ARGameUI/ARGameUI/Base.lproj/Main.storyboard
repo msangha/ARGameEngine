@@ -79,10 +79,36 @@
                         <viewControllerLayoutGuide type="top" id="m5x-zj-oCb"/>
                         <viewControllerLayoutGuide type="bottom" id="bmM-9t-tGi"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5oh-ve-aj8">
+                    <view key="view" contentMode="scaleAspectFill" id="5oh-ve-aj8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJt-vi-ozx">
+                                <rect key="frame" x="285" y="161" width="30" height="30"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q1n-kz-W9n">
+                                <rect key="frame" x="250" y="357" width="100" height="100"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UA-Zh-fQN">
+                                <rect key="frame" x="250" y="143" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="ImI-R2-p2e"/>
+                                    <constraint firstAttribute="width" constant="100" id="Oue-bE-8pN"/>
+                                </constraints>
+                                <state key="normal" image="camera_icon2x.png"/>
+                                <connections>
+                                    <action selector="cameraButton:" destination="Cv9-nj-fGm" eventType="touchUpInside" id="jsp-Vd-gHu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="centerX" secondItem="zJt-vi-ozx" secondAttribute="centerX" id="IB9-rw-b4P"/>
+                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="top" secondItem="m5x-zj-oCb" secondAttribute="bottom" constant="79" id="XTa-zF-mW9"/>
+                            <constraint firstItem="bmM-9t-tGi" firstAttribute="top" secondItem="Q1n-kz-W9n" secondAttribute="bottom" constant="143" id="cXN-PY-5p3"/>
+                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="leading" secondItem="Q1n-kz-W9n" secondAttribute="leading" id="cqv-0f-nAP"/>
+                            <constraint firstItem="Q1n-kz-W9n" firstAttribute="centerX" secondItem="5oh-ve-aj8" secondAttribute="centerX" id="hhD-i2-SFN"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="snZ-vs-z6Y">
                         <barButtonItem key="leftBarButtonItem" title="≡" id="9Og-Nt-4Cw"/>
@@ -93,7 +119,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LC-gs-xa6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1614" y="-700"/>
+            <point key="canvasLocation" x="1636" y="-642"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera_icon2x.png" width="256" height="256"/>
+        <image name="pokeball.png" width="100" height="100"/>
+    </resources>
 </document>
