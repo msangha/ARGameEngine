@@ -86,11 +86,17 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJt-vi-ozx">
                                 <rect key="frame" x="285" y="161" width="30" height="30"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokeball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q1n-kz-W9n">
-                                <rect key="frame" x="250" y="357" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="pokeball.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q1n-kz-W9n">
+                                <rect key="frame" x="250" y="356" width="100" height="100"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5Q-6E-TTE">
+                                <rect key="frame" x="345" y="516" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UA-Zh-fQN">
-                                <rect key="frame" x="250" y="143" width="100" height="100"/>
+                                <rect key="frame" x="255" y="147" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ImI-R2-p2e"/>
                                     <constraint firstAttribute="width" constant="100" id="Oue-bE-8pN"/>
@@ -103,11 +109,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="centerX" secondItem="zJt-vi-ozx" secondAttribute="centerX" id="IB9-rw-b4P"/>
-                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="top" secondItem="m5x-zj-oCb" secondAttribute="bottom" constant="79" id="XTa-zF-mW9"/>
+                            <constraint firstItem="J5Q-6E-TTE" firstAttribute="centerX" secondItem="4UA-Zh-fQN" secondAttribute="centerX" constant="40" id="75d-Gx-fjc"/>
+                            <constraint firstItem="J5Q-6E-TTE" firstAttribute="top" secondItem="Q1n-kz-W9n" secondAttribute="bottom" constant="60" id="9ip-cg-PeY"/>
+                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="centerX" secondItem="zJt-vi-ozx" secondAttribute="centerX" constant="5" id="IB9-rw-b4P"/>
+                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="top" secondItem="m5x-zj-oCb" secondAttribute="bottom" constant="83" id="XTa-zF-mW9"/>
                             <constraint firstItem="bmM-9t-tGi" firstAttribute="top" secondItem="Q1n-kz-W9n" secondAttribute="bottom" constant="143" id="cXN-PY-5p3"/>
-                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="leading" secondItem="Q1n-kz-W9n" secondAttribute="leading" id="cqv-0f-nAP"/>
+                            <constraint firstItem="4UA-Zh-fQN" firstAttribute="leading" secondItem="Q1n-kz-W9n" secondAttribute="leading" constant="5" id="cqv-0f-nAP"/>
                             <constraint firstItem="Q1n-kz-W9n" firstAttribute="centerX" secondItem="5oh-ve-aj8" secondAttribute="centerX" id="hhD-i2-SFN"/>
+                            <constraint firstItem="bmM-9t-tGi" firstAttribute="top" secondItem="J5Q-6E-TTE" secondAttribute="bottom" constant="63" id="oaF-ik-AWb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="snZ-vs-z6Y">
@@ -115,6 +124,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="Menu" destination="9Og-Nt-4Cw" id="ucH-TX-WIe"/>
+                        <outlet property="pokeBeacon" destination="Q1n-kz-W9n" id="1Ef-jq-HEO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6LC-gs-xa6" userLabel="First Responder" sceneMemberID="firstResponder"/>

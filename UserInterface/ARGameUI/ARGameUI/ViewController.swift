@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var Menu: UIBarButtonItem!
 
+    @IBOutlet weak var pokeBeacon: UIImageView!
     @IBAction func cameraButton(sender: AnyObject) {
         
     }
@@ -23,6 +24,15 @@ class ViewController: UIViewController {
         
         Menu.action =  Selector("revealToggle:")
         
+        var pokeXPosition = pokeBeacon.frame.origin.x
+        var pokeYPosition = pokeBeacon.frame.origin.y
+        print(pokeXPosition)
+        print(pokeYPosition)
+        
+        let origin = CGPointMake(190,480)
+        
+        let pulseEffect = LFTPulseAnimation(repeatCount: Float.infinity, radius:70, position:origin)
+        view.layer.insertSublayer(pulseEffect, below: pokeBeacon.layer)
 
     }
 
