@@ -14,10 +14,16 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     private let captureSession = AVCaptureSession()
     private var captureDevice: AVCaptureDevice?
     private var previewLayer: AVCaptureVideoPreviewLayer?
-    //private let dataOutput = AVCaptureVideoDataOutput()
-    
-    
-    var imageView: UIImageView = UIImageView()
+    private var imageView: UIImageView = UIImageView()
+    var displayVideo: Bool = false {
+        didSet{
+            if displayVideo {
+                captureSession.startRunning()
+            } else {
+                captureSession.stopRunning()
+            }
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -46,11 +52,14 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         }
         
         if (captureDevice != nil) {
-            beginSession()
+            setupSession()
         }
+        
+        // for testing
+        displayVideo = true
     }
     
-    private func beginSession() {
+    private func setupSession() {
         var error: NSError?
         
         captureSession.addInput(AVCaptureDeviceInput(device: captureDevice, error: &error))
@@ -66,23 +75,6 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         dataOutput.setSampleBufferDelegate(self, queue: dispatch_get_main_queue())
         
         captureSession.addOutput(dataOutput)
-
-        captureSession.startRunning()
-        
-        /*
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        
-        UIGraphicsBeginImageContext(previewLayer!.bounds.size)
-        previewLayer?.renderInContext(UIGraphicsGetCurrentContext())
-        //var cgImage: CGImageRef = CGBitmapContextCreateImage(UIGraphicsGetCurrentContext())
-        UIGraphicsEndImageContext();
-        
-        //var ciImage: CIImage = CIImage(CGImage: cgImage)
-        
-        self.view.layer.addSublayer(previewLayer)
-        previewLayer?.frame = self.view.layer.frame
-        captureSession.startRunning()
-        */
     }
     
     func mockChangeImage(image: CIImage) -> CIImage {
